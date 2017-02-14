@@ -9,8 +9,8 @@ RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
 ENV APP_DIR /application
 
 # app dir
-RUN mkdir ${APP_DIR} \
-	&& chown -R nginx:nginx ${APP_DIR} \
+RUN mkdir /application \
+	&& chown -R nginx:nginx /application \
 	&& chmod 777 /run/ -R \
 	&& chmod 777 /root/ -R
 WORKDIR ${APP_DIR}
