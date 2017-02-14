@@ -6,10 +6,11 @@ RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
 	&& pip2 install --upgrade pip
 
 # app dir
-RUN mkdir /application \
-	&& chown -R nginx:nginx /application \
-	&& chmod 777 /run/ -R \
-	&& chmod 777 /root/ -R
+RUN mkdir /application
+COPY /application/* /application
+RUN chown -R nginx:nginx /application
+RUN chmod 777 /run/ -R
+RUN chmod 777 /root/ -R
 WORKDIR /application
 
 # expose web server port
