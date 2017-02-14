@@ -5,15 +5,11 @@ MAINTAINER Ricky Whitaker <ricky.whitaker@undeadcodersociety.com>
 RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
 	&& pip2 install --upgrade pip
 
-# application folder
-ENV APP_DIR /application
-
 # app dir
 RUN mkdir /application \
 	&& chown -R nginx:nginx /application \
 	&& chmod 777 /run/ -R \
 	&& chmod 777 /root/ -R
-WORKDIR ${APP_DIR}
 
 # expose web server port
 # only http, for ssl use reverse proxy
