@@ -7,7 +7,7 @@ RUN apk add --no-cache bash git nginx uwsgi uwsgi-python py2-pip \
 
 # app dir
 RUN mkdir /application
-COPY /application/* /application
+COPY /application/ /application/
 RUN chown -R nginx:nginx /application
 RUN chmod 777 /run/ -R
 RUN chmod 777 /root/ -R
