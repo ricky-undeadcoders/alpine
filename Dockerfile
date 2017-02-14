@@ -10,6 +10,7 @@ RUN mkdir /application \
 	&& chown -R nginx:nginx /application \
 	&& chmod 777 /run/ -R \
 	&& chmod 777 /root/ -R
+WORKDIR /application
 
 # expose web server port
 # only http, for ssl use reverse proxy
