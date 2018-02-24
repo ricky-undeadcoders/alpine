@@ -35,5 +35,6 @@ if [ -e /debug1 ]; then
 	python2 app.py
 else
 	echo "Running app in production mode!"
+	celery worker -l info -A app.celery
 	nginx && uwsgi --ini /app.ini
 fi
